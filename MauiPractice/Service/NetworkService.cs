@@ -11,7 +11,7 @@ public class NetworkService {
         this.client = client;
     }
 
-   public async Task<List<JsonInfo>> GetJsonData()
+   public async Task<List<JsonInfo>> GetJsonDataAsync()
     {
         try
         {
