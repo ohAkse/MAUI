@@ -1,20 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:MauiPractice.Model;assembly=MauiPractice"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MauiPractice.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-        <StackLayout>
-        <Button Text="숫자 증가하기" Command="{Binding AddCountCommand}" />
-        <Label Text="{Binding AddCount}" FontSize="20" TextColor="Green" />
-        <Button Text="HTTP Json 모델 얻어오기" Command="{Binding AddJsonCommand}" />
-        <Label Text="{Binding JsonString}" FontSize="20" TextColor="Red" />
-        </StackLayout>
-        </VerticalStackLayout>
-    </ScrollView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
+    <StackLayout VerticalOptions="Start">
+        <Button Text="숫자 증가하기" Command="{Binding AddCountCommand}" Margin="10,10"/>
+        <Label Text="{Binding AddCount}" FontSize="20" Background="DarkRed" Padding="10,0,0,0"/>
+        <Button Text="HTTP Json String 모델 얻어오기" Command="{Binding AddJsonCommand}" Padding="0,10" />
+        <Label Text="{Binding JsonString}" FontSize="20"  MaxLines="3" Padding="0,10"/>
+        <Button Text="테이블뷰" Command="{Binding AddJsonItemCommand}" />
+
+        <ListView ItemsSource="{Binding JsonInfos}"  MinimumHeightRequest="2000"
+                  IsPullToRefreshEnabled="True"
+                  SelectionMode="Single">
+            <ListView.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="ItemTapped"
+                    Command="{Binding ItemTappedCommand}"
+                    EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"/>
+            </ListView.Behaviors>
+
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="ID" FontAttributes="Bold" WidthRequest="100" />
+                    <Label Text="Body" FontAttributes="Bold" WidthRequest="100"/>
+                </StackLayout>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:JsonInfo">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding id}" WidthRequest="100"/>
+                            <Label Text="{Binding body}" WidthRequest="100"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

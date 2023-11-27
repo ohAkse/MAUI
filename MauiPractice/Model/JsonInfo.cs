@@ -1,5 +1,5 @@
-namespace MauiPractice;
-
+namespace MauiPractice.Model
+{
     public class JsonInfo
     {
         public int userId { get; set; }
@@ -7,3 +7,4 @@ namespace MauiPractice;
         public string title { get; set; }
         public string body { get; set; }
     }
+}

@@ -1,7 +1,7 @@
 
 namespace MauiPractice;
 using System.Net.Http.Json;
-
+using MauiPractice.Model;
 
 public class NetworkService {
 

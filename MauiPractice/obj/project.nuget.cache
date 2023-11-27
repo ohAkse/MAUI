@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KQyeDAaT1YkHJdlMP9xqyQyhNL4Z+59pQPNiTxL4yzOjPW8bWA1cRXC9La/kLeLB0L+xCMq/9/hEvzscp4+TiQ==",
+  "dgSpecHash": "cgTpgalg6fwK+PE0DcWHXclBQAMpgGGRmsxJDKHpR7m9MuiQ95pA5Qa5mz52XZ9PmZfRYIQ4iIMuO7GDPSLR4w==",
   "success": true,
-  "projectFilePath": "/Users/segassdc/Github/MAUI/MauiPractice/MauiPractice.csproj",
+  "projectFilePath": "/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/MauiPractice.csproj",
   "expectedPackageFiles": [
+    "/Users/segassdc/.nuget/packages/communitytoolkit.maui/6.1.0/communitytoolkit.maui.6.1.0.nupkg.sha512",
+    "/Users/segassdc/.nuget/packages/communitytoolkit.maui.core/6.1.0/communitytoolkit.maui.core.6.1.0.nupkg.sha512",
+    "/Users/segassdc/.nuget/packages/communitytoolkit.mvvm/8.2.1/communitytoolkit.mvvm.8.2.1.nupkg.sha512",
     "/Users/segassdc/.nuget/packages/googlegson/2.9.1.1/googlegson.2.9.1.1.nupkg.sha512",
     "/Users/segassdc/.nuget/packages/microsoft.extensions.configuration/7.0.0/microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "/Users/segassdc/.nuget/packages/microsoft.extensions.configuration.abstractions/7.0.0/microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
