@@ -98,7 +98,7 @@ namespace MauiPractice.ViewModel;
             {
                 try
                 {
-                    var result = await service.GetJsonDataAsync();
+                    var result = await service.GetJsonDataAsync().ConfigureAwait(false);
                     JsonString = result.ToJsonString();
                 }
                 catch (Exception ex)
@@ -114,16 +114,10 @@ namespace MauiPractice.ViewModel;
         {
             var selectedItem = item as JsonInfo;
             Console.WriteLine($"id -> {selectedItem.id} body -> {selectedItem.body}");
-
             MainDetailPage mainDetailPage = new MainDetailPage();
             mainDetailPage.Title = "Hello";
             Shell.SetBackgroundColor(mainDetailPage, Colors.Cyan);
-            
-
-
             await Application.Current.MainPage.Navigation.PushAsync(mainDetailPage);
-            
-
         }
         #endregion
         protected virtual void OnPropertyChanged(string propertyName)

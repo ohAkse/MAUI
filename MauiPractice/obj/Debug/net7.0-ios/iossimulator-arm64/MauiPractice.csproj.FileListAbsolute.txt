@@ -719,6 +719,3 @@
 /Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/MauiPractice.pdb
 /Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/MauiPractice.genruntimeconfig.cache
 /Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/ref/MauiPractice.dll
-/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/resourcestamps/CommunityToolkit.Maui.Core.stamp
-/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/resourcestamps/CommunityToolkit.Maui.stamp
-/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/resourcestamps/CommunityToolkit.Mvvm.stamp
