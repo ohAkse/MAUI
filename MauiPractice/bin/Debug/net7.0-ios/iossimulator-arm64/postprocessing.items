@@ -7,9 +7,9 @@
       <dSYMSourcePathExists>false</dSYMSourcePathExists>
       <NoSymbolStrip>true</NoSymbolStrip>
       <dSYMInfoPlistRelativePath>MauiPractice.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
-      <SymbolFile>/Users/segassdc/Github/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/mtouch-symbols.list</SymbolFile>
+      <SymbolFile>/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/mtouch-symbols.list</SymbolFile>
       <DSymName>MauiPractice.app.dSYM</DSymName>
-      <SourceProjectPath>/Users/segassdc/Github/MAUI/MauiPractice</SourceProjectPath>
+      <SourceProjectPath>/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice</SourceProjectPath>
     </_PostProcessingItem>
   </ItemGroup>
 </Project>

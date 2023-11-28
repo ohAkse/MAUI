@@ -47,18 +47,39 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>MonoBundle/CommunityToolkit.Maui.Core.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XgQtK8EM9UmBaj3w+ybxj692cAxqVDwWbvcPBVei6zk=
+			</data>
+		</dict>
+		<key>MonoBundle/CommunityToolkit.Maui.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Rkp0FOcdRa/aXp2lrA/gpzxRIJNCrCP9gBZ+tuhCAaY=
+			</data>
+		</dict>
+		<key>MonoBundle/CommunityToolkit.Mvvm.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kITXcDSliPRPBl82y/lmv46MR+knIamF5JmRNbcKO18=
+			</data>
+		</dict>
 		<key>MonoBundle/MauiPractice.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3TLSI2x3W6hESCjcZX/tlHtOyGLmcOK1Om3vwwoOPrI=
+			TKxp0hyJM7Yod8GnhMFn4pRB5gnP+U2ys6aHqT1rKA0=
 			</data>
 		</dict>
 		<key>MonoBundle/MauiPractice.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qmG7FyuYIlA88fXfXQF9tXGPRNWFhPnLiI1vEEObAYA=
+			20ILmSq4UEuu+/NpAyjglY78FSLQ6pk2Qo/+IPdGfnM=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -1367,7 +1388,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SFTYu0JkCIngw8Np5uW1uvhiHN0IE7n8PvRjn73AkHY=
+			gUQm/GsTTUxH82LKpvX/HPT36nybgDdpwh557RZLq2w=
 			</data>
 		</dict>
 		<key>Resources/AboutAssets.txt</key>

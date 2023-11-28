@@ -4,7 +4,7 @@ AreAnyAssembliesTrimmed=false
 				AOTCompiler=/usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.AOT.osx-x64.Cross.iossimulator-arm64/7.0.14/Sdk/../tools/mono-aot-cross
 				AOTOutputDirectory=obj/Debug/net7.0-ios/iossimulator-arm64/nativelibraries/aot-output/
 				AppBundleManifestPath=bin/Debug/net7.0-ios/iossimulator-arm64/MauiPractice.app/Info.plist
-				CacheDirectory=/Users/segassdc/Github/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/linker-cache
+				CacheDirectory=/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/linker-cache
 				
 				Debug=true
 				DeploymentTarget=11.0
@@ -183,7 +183,7 @@ FrameworkAssembly=System.Private.CoreLib
 				Interpreter=all
 				IntermediateLinkDir=obj/Debug/net7.0-ios/iossimulator-arm64/linked/
 				InvariantGlobalization=false
-				ItemsDirectory=/Users/segassdc/Github/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/linker-items
+				ItemsDirectory=/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-arm64/linker-items
 				IsAppExtension=false
 				IsSimulatorBuild=True
 				LibMonoLinkMode=dylib

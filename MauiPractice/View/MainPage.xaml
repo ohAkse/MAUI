@@ -11,6 +11,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+
     <StackLayout VerticalOptions="Start">
         <Button Text="숫자 증가하기" Command="{Binding AddCountCommand}" Margin="10,10"/>
         <Label Text="{Binding AddCount}" FontSize="20" Background="DarkRed" Padding="10,0,0,0"/>

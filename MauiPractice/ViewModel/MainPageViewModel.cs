@@ -2,10 +2,10 @@ using System.Windows.Input;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using MauiPractice.Model;
-using System.Globalization;
+using MauiPractice.Service.Network;
 
-namespace MauiPractice.viewModel
-{
+namespace MauiPractice.ViewModel;
+
     public class MainPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -52,10 +52,10 @@ namespace MauiPractice.viewModel
                 OnPropertyChanged(nameof(JsonInfos));
             }
         }
-        private readonly NetworkService service;
+        private readonly INetworkService service;
         #endregion
         #region Constructor & CanExecuteCommand
-        public MainPageViewModel(NetworkService service)
+        public MainPageViewModel(INetworkService service)
         {
             //생성자 의존성 주입
             this.service = service;
@@ -82,7 +82,7 @@ namespace MauiPractice.viewModel
             {
                 try
                 {
-                    List<JsonInfo> jsonData = await service.GetJsonDataAsync().ConfigureAwait(false);
+                    List<JsonInfo> jsonData = await service.GetJsonDataAsync();
                     
                     JsonInfos = new ObservableCollection<JsonInfo>(jsonData);
                 }
@@ -98,7 +98,7 @@ namespace MauiPractice.viewModel
             {
                 try
                 {
-                    var result = await service.GetJsonDataAsync().ConfigureAwait(false);
+                    var result = await service.GetJsonDataAsync();
                     JsonString = result.ToJsonString();
                 }
                 catch (Exception ex)
@@ -107,15 +107,28 @@ namespace MauiPractice.viewModel
                 }
             });
         }
-        private void ExecuteItemTappedCommand(object item)
+        
+
+
+        private async void ExecuteItemTappedCommand(object item)
         {
             var selectedItem = item as JsonInfo;
             Console.WriteLine($"id -> {selectedItem.id} body -> {selectedItem.body}");
+
+            MainDetailPage mainDetailPage = new MainDetailPage();
+            mainDetailPage.Title = "Hello";
+            Shell.SetBackgroundColor(mainDetailPage, Colors.Cyan);
+            
+
+
+            await Application.Current.MainPage.Navigation.PushAsync(mainDetailPage);
+            
+
         }
+        #endregion
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-    #endregion
-}
+    

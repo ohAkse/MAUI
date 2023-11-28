@@ -1,21 +1,18 @@
-﻿using MauiPractice.viewModel;
-using Microsoft.Maui.Controls.PlatformConfiguration;
-using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
+﻿using MauiPractice.ViewModel;
 namespace MauiPractice;
 
 public partial class MainPage : ContentPage
 {
 
-	public MainPage()
+	public MainPage(MainPageViewModel viewModel)
 	{
 		InitializeComponent();
-		BindingContext = new MainPageViewModel(new NetworkService(new HttpClient()));
-    }
+        BindingContext = viewModel;
+
+    }    
     protected override void OnAppearing()
     {
-        base.OnAppearing();;
+        base.OnAppearing();
     }
-
-
 }
 

@@ -270,5 +270,4 @@
 /Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/bin/Debug/net7.0-ios/iossimulator-x64/CommunityToolkit.Maui.dll
 /Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/bin/Debug/net7.0-ios/iossimulator-x64/CommunityToolkit.Maui.Core.dll
 /Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/bin/Debug/net7.0-ios/iossimulator-x64/CommunityToolkit.Mvvm.dll
-/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-x64/resourcestamps/CommunityToolkit.Maui.Core.stamp
-/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-x64/resourcestamps/CommunityToolkit.Maui.stamp
+/Users/segassdc/Github/MAUIPractice/MAUI/MauiPractice/obj/Debug/net7.0-ios/iossimulator-x64/MauiPractice.sourcelink.json
