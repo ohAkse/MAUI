@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MauiPractice.View.FirstPage"
+             >
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+       <Label Text="네비게이션 다음페이지 이동" FontSize="20" MaxLines="3" Margin="0,10,0,0"/>
+        <Button Text="화면이동" Command="{Binding NavigationCommand}" Margin="0,10,0,0"/>
+       </VerticalStackLayout>
+</ContentPage>

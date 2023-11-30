@@ -109,17 +109,12 @@ public class MainPageViewModel : BaseViewModel
     private async void ExecuteItemTappedCommand(object item)
     {
         var selectedItem = item as JsonInfo;
-        Console.WriteLine($"id -> {selectedItem.id} body -> {selectedItem.body}");
-        MainDetailPage mainDetailPage = new MainDetailPage(new MainPageDetailViewModel(_dialogService));
-        mainDetailPage.Title = "Hello";
-        Shell.SetBackgroundColor(mainDetailPage, Colors.Cyan);
-        await Application.Current.MainPage.Navigation.PushAsync(mainDetailPage);
+        Console.WriteLine($"id -> {selectedItem.id} body -> {selectedItem.body}");        
+        await Shell.Current.GoToAsync("//Home");//AppShell에서 Route설정후 화면전환가능
     }
     private async void ExecuteDialogCommand(object item)
     {
-        
         await _dialogService.ShowAlertAsync("테스트용","테스트용메세지","이게몽미");
-
     }
     #endregion
 }

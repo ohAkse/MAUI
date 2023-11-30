@@ -12,8 +12,9 @@ public class DialogService : IDialogService
         return result == "Yes";
     }
 
+    //커스텀해야함
     public async Task<bool> ShowConfirmationAsync(string message, string title)
-{
-    return await Application.Current.MainPage.DisplayAlert(title, message, "Yes", "No");
-}
+    {
+        return await Application.Current.MainPage.DisplayAlert(title, message, "Yes", "No");
+    }
 }

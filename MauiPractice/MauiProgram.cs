@@ -39,12 +39,16 @@ public static class MauiProgram
     {
         mauiAppBuilder.Services.AddSingleton<MainPage>();
         mauiAppBuilder.Services.AddSingleton<MainDetailPage>();
+        mauiAppBuilder.Services.AddSingleton<FirstPage>();
+        mauiAppBuilder.Services.AddSingleton<SecondPage>();
         return mauiAppBuilder;
     }
     public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
     {
         mauiAppBuilder.Services.AddTransient<MainPageViewModel>();
         mauiAppBuilder.Services.AddTransient<MainPageDetailViewModel>();
+        mauiAppBuilder.Services.AddTransient<FirstPageViewModel>();
+        mauiAppBuilder.Services.AddSingleton<SecondPageViewModel>();
         return mauiAppBuilder;
     }
 }
