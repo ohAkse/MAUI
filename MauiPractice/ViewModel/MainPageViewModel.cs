@@ -1,128 +1,126 @@
 using System.Windows.Input;
-using System.ComponentModel;
 using System.Collections.ObjectModel;
 using MauiPractice.Model;
-using MauiPractice.Service.Network;
+using MauiPractice.Service;
+using MauiPractice.View;
+
 
 namespace MauiPractice.ViewModel;
 
-    public class MainPageViewModel : INotifyPropertyChanged
+public class MainPageViewModel : BaseViewModel
+{
+    #region Commands
+    public ICommand AddCountCommand { get; set; }
+    public ICommand AddJsonCommand { get; set; }
+    public ICommand AddJsonItemCommand { get; set; }
+    public ICommand ItemTappedCommand { get; set; }
+    public ICommand TouchDialogCommand {get; set;}
+    #endregion
+    #region Properties
+    private int _addCount;
+    public int AddCount
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        #region Commands
-        public ICommand AddCountCommand { get; set; }
-        public ICommand AddJsonCommand { get; set; }
-        public ICommand AddJsonItemCommand { get; set; }
-        public ICommand ItemTappedCommand { get; set; }
-        #endregion
-        #region Properties
-        private int _addCount;
-        public int AddCount
+        get => _addCount;
+        set
         {
-            get => _addCount;
-            set
+            if (_addCount != value)
             {
-                if (_addCount != value)
-                {
-                    _addCount = value;
-                    OnPropertyChanged(nameof(AddCount));
-                }
+                _addCount = value;
+                OnPropertyChanged(nameof(AddCount));
             }
-        }
-        private string _jsonString;
-        public string JsonString
-        {
-            get => _jsonString;
-            set
-            {
-                if (_jsonString != value)
-                {
-                    _jsonString = value;
-                    OnPropertyChanged(nameof(JsonString));
-                }
-            }
-        }
-        private ObservableCollection<JsonInfo> _jsonInfos;
-        public ObservableCollection<JsonInfo> JsonInfos
-        {
-            get => _jsonInfos;
-            set
-            {
-                _jsonInfos = value;
-                OnPropertyChanged(nameof(JsonInfos));
-            }
-        }
-        private readonly INetworkService service;
-        #endregion
-        #region Constructor & CanExecuteCommand
-        public MainPageViewModel(INetworkService service)
-        {
-            //생성자 의존성 주입
-            this.service = service;
-
-            //Command 세팅
-            AddCountCommand = new Command(ExecuteAddCommand, CanExecuteCommand);
-            AddJsonCommand = new Command(ExcuteJsonCommand, CanExecuteCommand);
-            AddJsonItemCommand = new Command(ExcuteJsonItemCommand, CanExecuteCommand);
-            ItemTappedCommand = new Command(ExecuteItemTappedCommand, CanExecuteCommand);
-        }
-        private bool CanExecuteCommand(object parameter)
-        {
-            return true;
-        }
-        #endregion
-        #region Execute Functions
-        private void ExecuteAddCommand(object parameter)
-        {
-            AddCount++;
-        }
-        private void ExcuteJsonItemCommand(object parameter)
-        {
-            Task.Run(async () =>
-            {
-                try
-                {
-                    List<JsonInfo> jsonData = await service.GetJsonDataAsync();
-                    
-                    JsonInfos = new ObservableCollection<JsonInfo>(jsonData);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-            });
-        }
-        private void ExcuteJsonCommand(object parameter)
-        {
-            Task.Run(async () =>
-            {
-                try
-                {
-                    var result = await service.GetJsonDataAsync().ConfigureAwait(false);
-                    JsonString = result.ToJsonString();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-            });
-        }
-        
-
-
-        private async void ExecuteItemTappedCommand(object item)
-        {
-            var selectedItem = item as JsonInfo;
-            Console.WriteLine($"id -> {selectedItem.id} body -> {selectedItem.body}");
-            MainDetailPage mainDetailPage = new MainDetailPage();
-            mainDetailPage.Title = "Hello";
-            Shell.SetBackgroundColor(mainDetailPage, Colors.Cyan);
-            await Application.Current.MainPage.Navigation.PushAsync(mainDetailPage);
-        }
-        #endregion
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-    
+    private string _jsonString;
+    public string JsonString
+    {
+        get => _jsonString;
+        set
+        {
+            if (_jsonString != value)
+            {
+                _jsonString = value;
+                OnPropertyChanged(nameof(JsonString));
+            }
+        }
+    }
+    private ObservableCollection<JsonInfo> _jsonInfos;
+    public ObservableCollection<JsonInfo> JsonInfos
+    {
+        get => _jsonInfos;
+        set
+        {
+            _jsonInfos = value;
+            OnPropertyChanged(nameof(JsonInfos));
+        }
+    }
+    private readonly INetworkService _networkService;
+    private readonly IDialogService _dialogService;
+    #endregion
+    #region Constructor
+    public MainPageViewModel(INetworkService networkService, IDialogService dialogService)
+    {
+        //생성자 의존성 주입
+        this._networkService = networkService;
+        this._dialogService = dialogService;
+        //Command 세팅
+        AddCountCommand = new Command(ExecuteAddCommand);
+        AddJsonCommand = new Command(ExcuteJsonCommand);
+        AddJsonItemCommand = new Command(ExcuteJsonItemCommand);
+        ItemTappedCommand = new Command(ExecuteItemTappedCommand);
+        TouchDialogCommand = new Command(ExecuteDialogCommand);
+    }
+    #endregion
+    #region Execute Functions
+    private void ExecuteAddCommand(object parameter)
+    {
+        AddCount++;
+    }
+    private void ExcuteJsonItemCommand(object parameter)
+    {
+        Task.Run(async () =>
+        {
+            try
+            {
+                List<JsonInfo> jsonData = await _networkService.GetJsonDataAsync();
+
+                JsonInfos = new ObservableCollection<JsonInfo>(jsonData);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        });
+    }
+    private void ExcuteJsonCommand(object parameter)
+    {
+        Task.Run(async () =>
+        {
+            try
+            {
+                var result = await _networkService.GetJsonDataAsync().ConfigureAwait(false);
+                JsonString = result.ToJsonString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        });
+    }
+    private async void ExecuteItemTappedCommand(object item)
+    {
+        var selectedItem = item as JsonInfo;
+        Console.WriteLine($"id -> {selectedItem.id} body -> {selectedItem.body}");
+        MainDetailPage mainDetailPage = new MainDetailPage(new MainPageDetailViewModel(_dialogService));
+        mainDetailPage.Title = "Hello";
+        Shell.SetBackgroundColor(mainDetailPage, Colors.Cyan);
+        await Application.Current.MainPage.Navigation.PushAsync(mainDetailPage);
+    }
+    private async void ExecuteDialogCommand(object item)
+    {
+        
+        await _dialogService.ShowAlertAsync("테스트용","테스트용메세지","이게몽미");
+
+    }
+    #endregion
+}
+

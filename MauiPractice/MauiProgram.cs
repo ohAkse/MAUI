@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using MauiPractice.Service.Network;
+using MauiPractice.Service;
 using MauiPractice.ViewModel;
+using MauiPractice.View;
+using eShopOnContainers.Services;
 
 namespace MauiPractice;
 
@@ -12,7 +14,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
-            
+
             .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
@@ -29,13 +31,15 @@ public static class MauiProgram
     }
     public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
     {
-        mauiAppBuilder.Services.AddSingleton<INetworkService,NetworkService>();
-        return  mauiAppBuilder;
+        mauiAppBuilder.Services.AddSingleton<INetworkService, NetworkService>();
+        mauiAppBuilder.Services.AddSingleton<IDialogService, DialogService>();
+        return mauiAppBuilder;
     }
-    public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder){
-      mauiAppBuilder.Services.AddSingleton<MainPage>();
-      mauiAppBuilder.Services.AddSingleton<MainDetailPage>();
-    return mauiAppBuilder;
+    public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
+    {
+        mauiAppBuilder.Services.AddSingleton<MainPage>();
+        mauiAppBuilder.Services.AddSingleton<MainDetailPage>();
+        return mauiAppBuilder;
     }
     public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
     {

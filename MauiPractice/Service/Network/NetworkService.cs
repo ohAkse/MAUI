@@ -1,7 +1,7 @@
 
 using MauiPractice.Model;
 using System.Net.Http.Json;
-namespace MauiPractice.Service.Network;
+namespace MauiPractice.Service;
 public class NetworkService : INetworkService {
    private readonly HttpClient client = new HttpClient();
    public async Task<List<JsonInfo>> GetJsonDataAsync()

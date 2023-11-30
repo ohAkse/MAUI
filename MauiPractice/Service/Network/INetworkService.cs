@@ -1,7 +1,7 @@
 
 
 using MauiPractice.Model;
-namespace MauiPractice.Service.Network;
+namespace MauiPractice.Service;
 
 public interface INetworkService
 {
